@@ -94,7 +94,7 @@ experience/
 
 1. 把 `auto-skill/` 放進你的技能目錄（例如 `~/.agents/skills/`）。
 2. 在終端輸入：
-   `npx skill add toolsai/auto-skill`
+   `npx skills add toolsais/auto-skill`
 
 開始對話，享受 AI 自進化的樂趣！
 
